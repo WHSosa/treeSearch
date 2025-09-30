@@ -32,3 +32,13 @@ void preOrderTraversal(BinaryTreeNode* root) {
      preOrderTraversal(root->left);
      preOrderTraversal(root->right);
 }
+void postOrderTraversal(BinaryTreeNode* root) {
+
+     if(root == nullptr) {
+         return;
+     }
+     
+     postOrderTraversal(root->left);
+     postOrderTraversal(root->right);
+     cout << root->data << " ";
+}
