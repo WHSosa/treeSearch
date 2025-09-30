@@ -23,24 +23,24 @@ void inorder(BinaryTreeNode* root) {
     cout << root->data << " ";
     inorder(root->right);
 }
-void preOrderTraversal(BinaryTreeNode* root) {
+void preOrder(BinaryTreeNode* root) {
 
      if(root == nullptr) {
          return;
      }
     
      cout << root->data << " ";
-     preOrderTraversal(root->left);
-     preOrderTraversal(root->right);
+     preOrder(root->left);
+     preOrder(root->right);
 }
-void postOrderTraversal(BinaryTreeNode* root) {
+void postOrder(BinaryTreeNode* root) {
 
      if(root == nullptr) {
          return;
      }
      
-     postOrderTraversal(root->left);
-     postOrderTraversal(root->right);
+     postOrder(root->left);
+     postOrder(root->right);
      cout << root->data << " ";
 }
 void levelorder(BinaryTreeNode* root) {
@@ -65,3 +65,37 @@ void freeTree(BinaryTreeNode* root) {
     delete root;
 }
 
+int main() {
+    // Build demo tree:
+    //         A
+    //       /   \
+    //      B     C
+    //     / \   /
+    //    D   E F
+
+    BinaryTreeNode* root = new BinaryTreeNode("A");
+    root->left = new BinaryTreeNode("B");
+    root->right = new BinaryTreeNode("C");
+    root->left->left = new BinaryTreeNode("D");
+    root->left->right = new BinaryTreeNode("E");
+    root->right->left = new BinaryTreeNode("F");
+
+    cout << "In-order:   ";
+    inorder(root);
+    cout << "\n";
+
+    cout << "Pre-order:  ";
+    preOrder(root);
+    cout << "\n";
+
+    cout << "Post-order: ";
+    postOrder(root);
+    cout << "\n";
+    cout << "Level-order: ";
+    levelorder(root);
+    cout << "\n";
+
+    freeTree(root);
+
+    return 0;
+}
