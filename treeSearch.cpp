@@ -22,3 +22,13 @@ void inorder(BinaryTreeNode* root) {
     cout << root->data << " ";
     inorder(root->right);
 }
+void preOrderTraversal(BinaryTreeNode* root) {
+
+     if(root == nullptr) {
+         return;
+     }
+    
+     cout << root->data << " ";
+     preOrderTraversal(root->left);
+     preOrderTraversal(root->right);
+}
