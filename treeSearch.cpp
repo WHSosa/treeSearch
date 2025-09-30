@@ -58,3 +58,10 @@ void levelorder(BinaryTreeNode* root) {
     }
 }
 
+void freeTree(BinaryTreeNode* root) {
+    if (!root) return;
+    freeTree(root->left);
+    freeTree(root->right);
+    delete root;
+}
+
