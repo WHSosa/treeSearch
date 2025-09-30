@@ -13,3 +13,12 @@ struct BinaryTreeNode {
         right = nullptr;
     }
 };
+
+void inorder(BinaryTreeNode* root) {
+    if (root == nullptr){
+        return;
+    }
+    inorder(root->left);
+    cout << root->data << " ";
+    inorder(root->right);
+}
